@@ -4,20 +4,19 @@ import Counters from "./components/counters";
 import Products from "./components/products";
 
 class App extends Component {
-    products = [
-        {id: 1, value: 0, product_name: "Pizza", image: 'pizza.jpeg'},
-        {id: 2, value: 0, product_name: "Papanasi", image: 'papanasi.jpeg'},
-        {id: 3, value: 0, product_name: "Brownie", image: 'brownie.jpeg'},
-        {id: 4, value: 0, product_name: "Salad", image: 'salad.jpeg'},
-        {id: 5, value: 0, product_name: "Sandwich", image: 'sandwich.jpeg'},
-        {id: 6, value: 0, product_name: "Burger", image: 'burger.jpeg'},
-    ]
     state = {
-        counters: [...this.products],
+        counters: [
+            {id: 1, value: 0, product_name: "Pizza", image: 'pizza.jpeg'},
+            {id: 2, value: 0, product_name: "Papanasi", image: 'papanasi.jpeg'},
+            {id: 3, value: 0, product_name: "Brownie", image: 'brownie.jpeg'},
+            {id: 4, value: 0, product_name: "Salad", image: 'salad.jpeg'},
+            {id: 5, value: 0, product_name: "Sandwich", image: 'sandwich.jpeg'},
+            {id: 6, value: 0, product_name: "Burger", image: 'burger.jpeg'},
+        ],
     };
 
     handleIncrement = (counter) => {
-        console.log("incrementing");
+        console.log(counter);
         const counters = [...this.state.counters];
         const index = counters.indexOf(counter);
         counters[index] = {...counters[index]};
@@ -51,7 +50,7 @@ class App extends Component {
                 <main className="container">
                     <div className="card__box">
                         <Products
-                            products={this.products}
+                            products={this.state.counters}
                             onIncrement={this.handleIncrement}
                         />
                         <NavBar
